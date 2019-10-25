@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="7c6d2a5b-848c-4836-9158-7701c047d933" name="test" url="http://localhost:8080/php/boottrap/">
+        <fileTransfer port="0" mountedRoot="C:\xampp\htdocs\php\boottrap" accessType="MOUNT" />
+      </webServer>
+    </option>
+  </component>
+</project>
