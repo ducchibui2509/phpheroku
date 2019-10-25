@@ -1,6 +1,33 @@
 # SHARE SQUARE Project
 
-## I. How to setup project on local environment
+## I. Tasks Status
+
+| Task Name                                                                             |    POC     | Due Date |   Status  |
+| --------------------------------------------------------------------------------------|:----------:| :-------:|:---------:|
+| Setup Laravel Framework | Kien       |Week 8    |Done      |
+| Setup Admin Landing page and layout| Kien       |Week 8    |Done      |
+| Admin: CRUD for Category| Kien       |Week 8    |Done      |
+| Admin: CRUD for Post| Kien       |Week 8    |Done      |
+| Admin: CRUD User| Kien       |Week 8    |Done      |
+| Admin: CRUD Role| Kien       |Week 8    |Done      |
+| Admin: Website configuration| Kien       |Week 8    |Done      |
+| Admin: Website configuration| Kien       |Week 8    |Done      |
+| User registration - basic| Kien       |Week 8    |Done      |
+| User Authentication - basic| Kien       |Week 8    |Done      |
+| User Authorization - basic| Kien       |Week 8    |Done      |
+| Homepage layout| Chi       |Week 8    |Done      |
+| Merge Home page layout to laravel template| Kien       |Week 8    |Done      |
+| Update Readme.md file to guideline on how to setup project on local environment| Kien       |Week 8    |Done      |
+| Define commit process and update the process to Readme.md| Kien       |Week 8    |In Progress      |
+| task |Tuong| week | status|
+| task |Pradeep| week | status|
+| task |name| week | status|
+| task |name| week | status|
+| task |name| week | status|
+| task |name| week | status|
+
+
+## II. How to setup project on local environment
 
 Following is step to setup project on local environment:
 
@@ -37,6 +64,6 @@ Following is step to setup project on local environment:
 14. Access the admin page: http://127.0.0.1:8000/admin (email: admin@admin.com/pass: password)
 15. Enjoy :)
 
-## II. The project to work with github .  
+## III. The project to work with github .  
    We are working in the project where serveral members will coding and commit contemporarily. As the result, code conflict will happen and one member might overide the code of other member when he commit if we don't have a process of how we commit code to github. Fortunately, github gives us the feature to handle it. Please strickly compliance with following process when working in the project
    
