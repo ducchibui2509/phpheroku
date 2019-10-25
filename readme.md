@@ -1,6 +1,6 @@
+# SHARE SQUARE Project
 
-
-## How to setup project on local environment
+## I. How to setup project on local environment
 
 Following is step to setup project on local environment:
 
@@ -20,10 +20,23 @@ Following is step to setup project on local environment:
 7. Generate an app encryption key: `php artisan key:generate`
 8. Create an empty database for our application in MYSQL Database: `ex: project`
 9. In the .env file, Edit database information to connect to the database according to your database configuration. You can file .env file in the project root folder .  
-`DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=project02
-DB_USERNAME=root
-DB_PASSWORD=root`
+   * `DB_CONNECTION=mysql` 
+   * `DB_HOST=127.0.0.1`  
+   * `DB_PORT=3306`
+   * `DB_DATABASE=project`
+   * `DB_USERNAME=root`
+   * `DB_PASSWORD=root`
 
+10. Migrate the database: It means create database table in your database based on migrate feature of laravel
+  * In project folder, run command: `php artisan migrate`
+11. Add dummy data to database: 
+  * In project folder, run command: `php artisan db:seed`
+12. Run the project
+ * In project folder, run command: `php artisan serve`
+13. Access the website: http://127.0.0.1:8000
+14. Access the admin page: http://127.0.0.1:8000/admin (email: admin@admin.com/pass: password)
+15. Enjoy :)
+
+## II. The project to work with github .  
+   We are working in the project where serveral members will coding and commit contemporarily. As the result, code conflict will happen and one member might overide the code of other member when he commit if we don't have a process of how we commit code to github. Fortunately, github gives us the feature to handle it. Please strickly compliance with following process when working in the project
+   
