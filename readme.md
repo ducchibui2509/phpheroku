@@ -21,7 +21,7 @@
 | Define commit process and update the process to Readme.md| Kien       |Week 8    |In Progress      |
 | task |Tuong| week | status|
 | task |Pradeep| week | status|
-| task |name| week | status|
+| Create Add post form |Chi| week9 | In Progress|
 | task |name| week | status|
 | task |name| week | status|
 | task |name| week | status|
