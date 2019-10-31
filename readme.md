@@ -18,11 +18,11 @@
 | Homepage layout| Chi       |Week 8    |Done      |
 | Merge Home page layout to laravel template| Kien       |Week 8    |Done      |
 | Update Readme.md file to guideline on how to setup project on local environment| Kien       |Week 8    |Done      |
-| Define commit process and update the process to Readme.md| Kien       |Week 8    |In Progress      |
+| Define commit process and update the process to Readme.md| Kien       |Week 8    |Done     |
 | task |Tuong| week | status|
 | Individual Feature Pages(Car,RealEstate,Jobs) |Pradeep| Week 9 | In Progress|
 | Create Add post form |Chi| week9 | In Progress|
-| task |name| week | status|
+| Integrate and structure main layout using **blade** template  |name| week | In Progress|
 | task |name| week | status|
 | task |name| week | status|
 
