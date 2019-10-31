@@ -22,7 +22,13 @@
 | task |Tuong| week | status|
 | Individual Feature Pages(Car,RealEstate,Jobs) |Pradeep| Week 9 | In Progress|
 | Create Add post form |Chi| week9 | In Progress|
-| Integrate and structure main layout using **blade** template  |name| week | In Progress|
+| Integrate and structure main layout using **blade** template  |Kien| week 09 | In Progress|
+| task |name| week | status|
+| task |name| week | status|
+| task |name| week | status|
+| task |name| week | status|
+| task |name| week | status|
+| task |name| week | status|
 | task |name| week | status|
 | task |name| week | status|
 
