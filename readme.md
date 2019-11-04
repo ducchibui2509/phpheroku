@@ -19,7 +19,7 @@
 | Merge Home page layout to laravel template| Kien       |Week 8    |Done      |
 | Update Readme.md file to guideline on how to setup project on local environment| Kien       |Week 8    |Done      |
 | Define commit process and update the process to Readme.md| Kien       |Week 8    |Done     |
-| task |Tuong| week | status|
+| Add UI mockup for advanced search page |Tuong| week 8 | Done|
 | Individual Feature Pages(Car,RealEstate,Jobs) |Pradeep| Week 9 | In Progress|
 | Create Add post form |Chi| week9 | In Progress|
 | Integrate and structure main layout using **blade** template  |Kien| week 09 | In Progress|
