@@ -22,14 +22,14 @@
 | Add UI mockup for advanced search page |Tuong| week 8 | Done|
 | Individual Feature Pages(Car,RealEstate,Jobs) |Pradeep| Week 9 | In Progress|
 | Create Add post form |Chi| week9 | In Progress|
-| Integrate and structure main layout using **blade** template  |Kien| week 09 | In Progress|
-| task |name| week | status|
-| task |name| week | status|
-| task |name| week | status|
-| task |name| week | status|
-| task |name| week | status|
-| task |name| week | status|
-| task |name| week | status|
+| Integrate and structure main layout using **blade** template  |Kien| week 09 | Done|
+| Create User Dashboard Layout (Statistic and Charts) |Kien| Week09 | Done|
+| Create User Profile Layout (Statistic and Charts) |Kien| Week09 | Done|
+| Create User Public Posts Layout (Statistic and Charts) |Kien| Week09 | Done|
+| Create User Pending Post Layout (Statistic and Charts) |Kien| Week09 | Done|
+| Create User Closed Post Layout (Statistic and Charts) |Kien| Week09 | Done|
+| Create User Favorite Post Layout (Statistic and Charts) |Kien| Week09 | Done|
+| Create User Recent View Post Layout (Statistic and Charts) |Kien| Week09 | Done|
 | task |name| week | status|
 
 
