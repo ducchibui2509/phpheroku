@@ -33,7 +33,8 @@
 | Create User Recent View Post Layout |Kien| Week09 | Done|
 | Create Post Detail layout (include rating, comments) |Pradeep| Week 9 | In Progress|
 | Create Create Post layout |Pradeep| Week 9 | In Progress|
-| task |name| week | status|
+| Create API Endpoint for post |Kien Tran| Week 11 | Done|
+| Create database mirgration and dummy data for comments, ratings, favorite, post images-list |Kien Tran| week11 | Done|
 
 
 ## II. How to setup project on local environment
