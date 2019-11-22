@@ -84,6 +84,10 @@
             }
         }
 
+        .card-header h4 {
+            margin-left: 10px;
+        }
+
     </style>
 
     @if(!empty(config('voyager.additional_css')))<!-- Additional CSS -->

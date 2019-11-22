@@ -15,4 +15,28 @@ class UserChart extends Chart
     {
         parent::__construct();
     }
+
+    public static function monthlyDataPrepare($data){
+        $result = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+        foreach ($data as $item){
+            $result[$item->month-1] = $item->data;
+        }
+
+        return $result;
+    }
+
+    public static function covertRatingToChart($data){
+        $result = Array();
+        $rating = [];
+        $count = [];
+        foreach ($data as $item){
+            array_push($rating, $item->rating . " Star");
+            array_push($count, $item->data);
+        }
+
+        return ['label' => $rating, 'data' => $count ];
+
+    }
+
 }

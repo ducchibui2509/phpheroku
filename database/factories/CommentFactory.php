@@ -1,8 +1,6 @@
 <?php
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
-use App\User;
-use Illuminate\Support\Str;
 use Faker\Generator as Faker;
 
 /*
@@ -16,12 +14,14 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(User::class, function (Faker $faker) {
+$factory->define(\App\Comment::class, function (Faker $faker) {
+    $date = now();
+    $date->addMonths(rand(-20,5));
     return [
-        'name' => $faker->name,
-        'email' => $faker->unique()->safeEmail,
-        'email_verified_at' => now(),
-        'password' => bcrypt('password'), // password
-        'remember_token' => Str::random(10),
+        'post_id' => rand(1,200),
+        'user_id' => rand(1,50),
+        'comment' => $faker->sentence(20),
+        'created_at' => $date,
+        'updated_at' => $date
     ];
 });
