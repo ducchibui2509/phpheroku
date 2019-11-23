@@ -37,7 +37,9 @@
 | Create database mirgration and dummy data for comments, ratings, favorite, post images-list |Kien Tran| week11 | Done|
 | Create database seeder to comments, ratings, views, user tables |Kien Tran| week11 | Done|
 | Complete User Dashboard page include charts and statistic|Kien Tran| week11 | Done|
-
+| Create common search function for search post |Kien Tran| week11 | Done|
+| Create MyPostController which handle all public, pending, draft, close, favorite post |Kien Tran| week11 | Done|
+| Create Seeder for favorite post |Kien Tran| week11 | Done|
 
 ## II. How to setup project on local environment
 
