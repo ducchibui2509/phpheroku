@@ -1,15 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\User;
 
 use App\Charts\UserChart;
-
 use App\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use TCG\Voyager\Models\Translation;
-use function MongoDB\BSON\toJSON;
+use App\Http\Controllers\Controller;
+
 
 class UserDashboardController extends Controller
 {
@@ -32,28 +31,28 @@ class UserDashboardController extends Controller
         $totalViews = DB::table('posts')
             ->join('post_views', 'post_views.post_id', '=', 'posts.id')
             ->where('posts.author_id', Auth::id(), true)
-            ->where(DB::raw('YEAR(post_views.created_at)'), $year)
+            ->whereYear('post_views.created_at', $year)
             ->select('post_views.id')
             ->count();
 
         $totalRatings = DB::table('posts')
             ->join('ratings', 'ratings.post_id', '=', 'posts.id')
             ->where('posts.author_id', Auth::id(), true)
-            ->where(DB::raw('YEAR(ratings.created_at)'), $year)
+            ->whereYear('ratings.created_at', $year)
             ->select('ratings.id')
             ->count();
 
         $totalComments = DB::table('posts')
             ->join('comments', 'comments.post_id', '=', 'posts.id')
             ->where('posts.author_id', Auth::id(), true)
-            ->where(DB::raw('YEAR(comments.created_at)'), $year)
+            ->whereYear('comments.created_at', $year)
             ->select('comments.id')
             ->count();
 
 
         $monthlyPost= DB::table('posts')
             ->where('author_id', Auth::id(), true)
-            ->where(DB::raw('YEAR(created_at)'), $year)
+            ->whereYear('created_at', $year)
             ->select(DB::raw('count(id) as `data`'),  DB::raw( 'MONTH(created_at) month'))
             ->groupby('month')
             ->get();
@@ -66,7 +65,7 @@ class UserDashboardController extends Controller
         $monthlyViews= DB::table('posts')
             ->join('post_views', 'post_views.post_id', '=', 'posts.id')
             ->where('posts.author_id', Auth::id(), true)
-            ->where(DB::raw('YEAR(post_views.created_at)'), $year)
+            ->whereYear('post_views.created_at', $year)
             ->select(DB::raw('count(post_views.id) as `data`'),  DB::raw( 'MONTH(post_views.created_at) month'))
             ->groupby('month')
             ->get();
@@ -74,7 +73,7 @@ class UserDashboardController extends Controller
         $monthlyRatings= DB::table('posts')
             ->join('ratings', 'ratings.post_id', '=', 'posts.id')
             ->where('posts.author_id', Auth::id(), true)
-            ->where(DB::raw('YEAR(ratings.created_at)'), $year)
+            ->whereYear('ratings.created_at', $year)
             ->select(DB::raw('count(ratings.id) as `data`'),  DB::raw( 'MONTH(ratings.created_at) month'))
             ->groupby('month')
             ->get();
@@ -82,7 +81,7 @@ class UserDashboardController extends Controller
         $monthlyComments= DB::table('posts')
             ->join('comments', 'comments.post_id', '=', 'posts.id')
             ->where('posts.author_id', Auth::id(), true)
-            ->where(DB::raw('YEAR(comments.created_at)'), $year)
+            ->whereYear('comments.created_at', $year)
             ->select(DB::raw('count(comments.id) as `data`'),  DB::raw( 'MONTH(comments.created_at) month'))
             ->groupby('month')
             ->get();
@@ -99,7 +98,7 @@ class UserDashboardController extends Controller
         $ratingSummary= DB::table('posts')
             ->join('ratings', 'ratings.post_id', '=', 'posts.id')
             ->where('posts.author_id', Auth::id(), true)
-            ->where(DB::raw('YEAR(ratings.created_at)'), $year)
+            ->whereYear('ratings.created_at', $year)
             ->select(DB::raw('count(ratings.id) as `data`'),  'ratings.rating')
             ->groupby('ratings.rating')
             ->orderBy('ratings.rating')

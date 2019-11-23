@@ -53,7 +53,7 @@
                             </div><div class="col-xs-12 col-sm-6 col-md-4"><div class="panel widget center bgimage" style="margin-bottom:0;overflow:hidden;background-image:url('http://127.0.0.1:8000/admin/voyager-assets?path=images%2Fwidget-backgrounds%2F03.jpg');">
                                     <div class="dimmer"></div>
                                     <div class="panel-content">
-                                        <i class="voyager-file-text"></i> <h4>{{$totalRatings}} Ratings</h4>
+                                        <i class="voyager-star"></i> <h4>{{$totalRatings}} Ratings</h4>
 
                                     </div>
                                 </div>

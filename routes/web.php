@@ -21,12 +21,16 @@ Route::group(['prefix' => 'admin'], function () {
 });
 
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/dashboard', 'UserDashboardController@index')->name('user.dashboard');
-Route::view('/profile', 'user.profile')->name('user.profile');
-Route::get('/public-post', 'MyPostController@publicPost')->name('user.public-post');
-Route::get('/pending-post', 'MyPostController@pendingPost')->name('user.pending-post');
-Route::get('/closed-post', 'MyPostController@closedPost')->name('user.closed-post');
-Route::get('/favorite-post', 'MyPostController@favoritePost')->name('user.favorite-post');
-Route::view('/messages', 'user.messages')->name('user.messages');
+
+Route::namespace('User')->group(function () {
+    Route::get('/dashboard', 'UserDashboardController@index')->name('user.dashboard');
+    Route::get('/public-post', 'MyPostController@publicPost')->name('user.public-post');
+    Route::get('/pending-post', 'MyPostController@pendingPost')->name('user.pending-post');
+    Route::get('/closed-post', 'MyPostController@closedPost')->name('user.closed-post');
+    Route::get('/draft-post', 'MyPostController@draftPost')->name('user.draft-post');
+    Route::get('/favorite-post', 'MyPostController@favoritePost')->name('user.favorite-post');
+    Route::view('/messages', 'user.messages')->name('user.messages');
+    Route::view('/profile', 'user.profile')->name('user.profile');
+});
+
