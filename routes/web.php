@@ -11,9 +11,19 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
+
+use App\Http\Controllers\HomeController;
+
+Route::get('/','HomeController@show');
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/posts/{id}', 'HomeController@addPost');
+Route::post('/posts','HomeController@storePost');
+Route::get('/posts/{id}/edit','HomeController@editPost');
+Route::put('/posts/{id}','HomeController@updatePost');
+Route::get('/pages/{id}','HomeController@toPage');
 
 
 Route::group(['prefix' => 'admin'], function () {
@@ -21,7 +31,8 @@ Route::group(['prefix' => 'admin'], function () {
 });
 
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
+
+
 
 Route::namespace('User')->group(function () {
     Route::get('/dashboard', 'UserDashboardController@index')->name('user.dashboard');

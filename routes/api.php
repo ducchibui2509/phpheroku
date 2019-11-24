@@ -18,3 +18,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('posts/{search?}', 'PostApiController@index')->where('search', '.*');;
+
+Route::get('users/{id}', 'UserApiController@index');
