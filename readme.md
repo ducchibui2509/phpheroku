@@ -40,6 +40,10 @@
 | Create common search function for search post |Kien Tran| week11 | Done|
 | Create MyPostController which handle all public, pending, draft, close, favorite post |Kien Tran| week11 | Done|
 | Create Seeder for favorite post |Kien Tran| week11 | Done|
+| Merging home page and details page using Laravel |Chi Bui| week11 | Done|
+| Add Post via home page |Chi Bui| week11 | Done|
+| Update Post in details page |Chi Bui| week11 | InProgess|
+
 
 ## II. How to setup project on local environment
 
