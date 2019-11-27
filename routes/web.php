@@ -25,6 +25,10 @@ Route::get('/posts/{id}/edit','HomeController@editPost');
 Route::put('/posts/{id}','HomeController@updatePost');
 Route::get('/pages/{id}','HomeController@toPage');
 
+//pradeep
+Route::get('/addPost','AddPostController@addPost');
+Route::post('/addNew','AddPostController@store');
+Route::post('/addAttributes','AddPostController@addAttributes');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
