@@ -6,6 +6,7 @@ use App\Http\Resources\PostCollection;
 use App\Http\Resources\PostResource;
 use App\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PostApiController extends Controller
 {
@@ -16,6 +17,7 @@ class PostApiController extends Controller
      */
     public function index($search = null)
     {
+        var_dump(auth('api')->user());
         return PostResource::collection(Post::with('author')->paginate(15));
     }
 

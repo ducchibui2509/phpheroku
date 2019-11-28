@@ -12,8 +12,9 @@ class MyPostController extends Controller
     public function publicPost(Request $request)
     {
 
-        return searchPost(Auth::id(), null, $request->search);
-        return view('user.post-list');
+        $posts =  searchPost(Auth::id(), null, $request->search);
+
+        return view('user.post-list', compact('posts'));
     }
 
     public function pendingPost(Request $request)

@@ -34,7 +34,7 @@ if (!function_exists('searchPost')) {
 
 
 
-        return $post->paginate(16)->appends(['search' => $search]);
+        return $post->paginate(15)->appends(['search' => $search]);
     }
 }
 
