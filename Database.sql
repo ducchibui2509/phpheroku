@@ -734,3 +734,41 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2019-11-24 13:09:59
+
+--
+-- Table structure for table `messages`
+--
+
+CREATE TABLE `messages` (
+  `id` int(11) NOT NULL,
+  `content` varchar(1000) NOT NULL,
+  `created_user_id` bigint(20) UNSIGNED NOT NULL,
+  `recipient_id` bigint(20) UNSIGNED NOT NULL,
+  `status` varchar(10) NOT NULL DEFAULT 'unread',
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Indexes for table `messages`
+--
+ALTER TABLE `messages`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `FK_messages_users_created_user_id` (`created_user_id`),
+  ADD KEY `FK_message_users_recipient_id` (`recipient_id`) USING BTREE;
+
+  
+  --
+-- AUTO_INCREMENT for table `messages`
+--
+ALTER TABLE `messages`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+  --
+-- Constraints for table `messages`
+--
+ALTER TABLE `messages`
+  ADD CONSTRAINT `FK_message_users_recipient_id` FOREIGN KEY (`recipient_id`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `FK_messages_users_created_user_id` FOREIGN KEY (`created_user_id`) REFERENCES `users` (`id`);
+
+  
