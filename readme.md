@@ -43,6 +43,8 @@
 | Merging home page and details page using Laravel |Chi Bui| week11 | Done|
 | Add Post via home page |Chi Bui| week11 | Done|
 | Update Post in details page |Chi Bui| week11 | InProgess|
+| Create Search Post helper function for post searching, filtering purpose include paging |Kien Tran| week12 | Done|
+| Create Post List layout for public, pending, draft, close, favorite |Kien Tran| week12 | In Progresss|
 
 
 ## II. How to setup project on local environment
