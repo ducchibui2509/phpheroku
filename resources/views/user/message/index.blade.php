@@ -1,8 +1,8 @@
-@extends('layouts.profile')
+@extends('layouts.master')
 @section('css')
     <link href="{{asset('css/messages.css')}}" rel="stylesheet"/>
 @endsection
-@section('content')
+@section('body')
     <div class="container">
 
 

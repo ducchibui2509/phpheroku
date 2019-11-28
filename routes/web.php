@@ -11,10 +11,24 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 
+use App\Http\Controllers\HomeController;
+
+Route::get('/','HomeController@show');
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/posts/{id}', 'HomeController@addPost');
+Route::post('/posts','HomeController@storePost');
+Route::get('/posts/{id}/edit','HomeController@editPost');
+Route::put('/posts/{id}','HomeController@updatePost');
+Route::get('/pages/{id}','HomeController@toPage');
+
+//pradeep
+Route::get('/addPost','AddPostController@addPost');
+Route::post('/addNew','AddPostController@store');
+Route::post('/addAttributes','AddPostController@addAttributes');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
@@ -22,16 +36,19 @@ Route::group(['prefix' => 'admin'], function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/dashboard', 'UserDashboardContoller@index')->name('user.dashboard');
-Route::view('/profile', 'user.profile')->name('user.profile');
-Route::view('/public-post', 'user.public-post')->name('user.public-post');
-Route::view('/pending-post', 'user.pending-post')->name('user.pending-post');
-Route::view('/closed-post', 'user.closed-post')->name('user.closed-post');
-Route::view('/favorite-post', 'user.favorite-post')->name('user.favorite-post');
-Route::view('/recent-view-post', 'user.recent-view-post')->name('user.recent-view-post');
+Route::namespace('User')->group(function () {
+    Route::get('/dashboard', 'UserDashboardController@index')->name('user.dashboard');
+    Route::get('/public-post', 'MyPostController@publicPost')->name('user.public-post');
+    Route::get('/pending-post', 'MyPostController@pendingPost')->name('user.pending-post');
+    Route::get('/closed-post', 'MyPostController@closedPost')->name('user.closed-post');
+    Route::get('/draft-post', 'MyPostController@draftPost')->name('user.draft-post');
+    Route::get('/favorite-post', 'MyPostController@favoritePost')->name('user.favorite-post');
+    Route::view('/messages', 'user.messages')->name('user.messages');
+    Route::view('/profile', 'user.profile')->name('user.profile');
+});
 //Route::view('/messages','user.message.index')->name('user.message.index');
 //Route::view('/messages', 'user.message.index')->name('user.messages');
 Route::resource('/messages','MessageController');
 Route::post('/messagesread/{id}', 'MessageController@read')->name('messages.read');
 Route::get('/messagesreply/{id}', 'MessageController@reply')->name('messages.reply');
+

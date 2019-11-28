@@ -21,11 +21,6 @@ class MessageController extends Controller
             ->orderBy('created_at','desc')
             ->get();
 
-//            ->where('recipient_id',3);
-//        $m=DB::table('Message')->where('recipient_id', 3);
-//$recipientID=app('VoyagerAuth')->user();
-//var_dump(\Auth::user());
-//        $m = Message::all();
         return view('user.message.index', ['messages' => $m]);
     }
 

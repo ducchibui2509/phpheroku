@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class Post extends Model
 {
@@ -13,7 +14,7 @@ class Post extends Model
      * @var array
      */
 //    protected $fillable = [
-//        'name', 'email', 'password',
+//        'category_id', 'title', 'seo_title','body','image'
 //    ];
 
     /**
@@ -38,4 +39,5 @@ class Post extends Model
     {
         return $this->belongsTo('App\User', 'author_id');
     }
+
 }
