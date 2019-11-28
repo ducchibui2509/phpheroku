@@ -1,4 +1,7 @@
 @extends('layouts/master')
+@section('css')
+    <link href="{{asset('css/welcome.css')}}" rel="stylesheet"/>
+@endsection
 @section('body')
     <div class="container">
         <div class="row">

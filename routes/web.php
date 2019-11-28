@@ -36,8 +36,6 @@ Route::group(['prefix' => 'admin'], function () {
 
 Auth::routes();
 
-
-
 Route::namespace('User')->group(function () {
     Route::get('/dashboard', 'UserDashboardController@index')->name('user.dashboard');
     Route::get('/public-post', 'MyPostController@publicPost')->name('user.public-post');
@@ -48,4 +46,9 @@ Route::namespace('User')->group(function () {
     Route::view('/messages', 'user.messages')->name('user.messages');
     Route::view('/profile', 'user.profile')->name('user.profile');
 });
+//Route::view('/messages','user.message.index')->name('user.message.index');
+//Route::view('/messages', 'user.message.index')->name('user.messages');
+Route::resource('/messages','MessageController');
+Route::post('/messagesread/{id}', 'MessageController@read')->name('messages.read');
+Route::get('/messagesreply/{id}', 'MessageController@reply')->name('messages.reply');
 

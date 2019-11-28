@@ -1,3 +1,7 @@
+<?php
+use App\NavMenus;
+$navmenus = NavMenus::all();
+?>
 <header class="d-flex align-self-center" style="background-color: cornsilk">
     <div class="container">
         <img src="{{url('/')."/storage/images/sharesquare.png"}}">
@@ -22,6 +26,7 @@
             @if (Route::has('login'))
                 @auth
                     <a class="align-self-center mr-2 " href="{{ url('/home') }}">Home</a>
+                    <a class="align-self-center mr-2 " href="{{ url('/messages') }}">Messages</a>
                 @else
                     <a class="align-self-center mr-2 " href="{{ route('login') }}">Login</a>
 
