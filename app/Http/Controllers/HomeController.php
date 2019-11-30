@@ -37,8 +37,8 @@ class HomeController extends Controller
 
     public function toPage($id){
         $navmenus = NavMenus::all();
-        $posts = Post::all();
-        return view('layouts/pages/'. $id, ['navmenus' => $navmenus
+        $posts = Post::all()->where('category_id','=',$id);
+        return view('layouts/pages/category', ['navmenus' => $navmenus
             , 'posts' => $posts]);
     }
 

@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row">
             @foreach($posts as $post)
-                @if($post->category_id == 2)
+{{--                @if($post->category_id == 1)--}}
                     <div class="col-sm-4 border-top border-right border-left border-bottom border-success">
                         <h3 class="card-title">{{$post->title}}</h3>
                         <div class="card mb-3">
@@ -54,7 +54,7 @@
                             </div>
                         </div>
                     </div>
-                @endif
+{{--                @endif--}}
             <!-- card -->
             @endforeach
         </div>

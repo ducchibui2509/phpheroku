@@ -18,7 +18,7 @@ $navmenus = NavMenus::all();
             <div class="navbar-nav">
                 <a href="/" class="navbar-brand">Share Square</a>
                 @foreach($navmenus as $navmenu)
-                    <a class="nav-item nav-link " href="/pages/{{$navmenu->link}}">{{$navmenu->name}}</a>
+                    <a class="nav-item nav-link " href="/pages/{{$navmenu->navtype}}">{{$navmenu->name}}</a>
                 @endforeach
             </div><!--navbar nav-->
         </div><!--collapse-->
