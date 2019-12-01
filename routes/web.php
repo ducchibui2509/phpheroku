@@ -24,6 +24,7 @@ Route::post('/posts','HomeController@storePost');
 Route::get('/posts/{id}/edit','HomeController@editPost');
 Route::put('/posts/{id}','HomeController@updatePost');
 Route::get('/pages/{id}','HomeController@toPage');
+Route::post('/posts/{id}/delete','HomeController@destroy');
 
 //pradeep
 Route::get('/addPost','AddPostController@addPost');

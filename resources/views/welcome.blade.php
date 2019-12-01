@@ -1,4 +1,4 @@
-@extends('layouts/master')
+{{--@extends('layouts/master')--}}
 @section('css')
     <link href="{{asset('css/welcome.css')}}" rel="stylesheet"/>
 @endsection
@@ -9,7 +9,7 @@
                 <div class="col-sm-4">
 
                     <section class="card mb-5" id="{{$navmenu->name}}">
-                        <a href="/pages/{{$navmenu->link}}">
+                        <a href="/pages/{{$navmenu->id}}">
                             <img class="card-img-top" src="storage/images/{{$navmenu->imagefilename}}"
                                  alt="{{$navmenu->name}} Photos">
                         </a>
@@ -29,3 +29,5 @@
         </div>
     </div>
 @endsection
+
+

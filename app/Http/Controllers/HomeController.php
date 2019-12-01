@@ -36,10 +36,9 @@ class HomeController extends Controller
     }
 
     public function toPage($id){
-        $navmenus = NavMenus::all();
-        $posts = Post::all()->where('category_id','=',$id);
-        return view('layouts/pages/category', ['navmenus' => $navmenus
-            , 'posts' => $posts]);
+//        $navmenus = NavMenus::all();
+        $posts = Post::where('category_id', $id)->paginate(4);
+        return view('layouts/pages/category', ['posts' => $posts]);
     }
 
     public function addPost(){
@@ -48,19 +47,21 @@ class HomeController extends Controller
     }
 
     public function storePost(Request $request){
-        $post = new Post();
-        $post -> author_id = 1;
-        $post -> category_id = $request ->category_id;
-        $post ->title = $request ->title;
-        $post -> seo_title = $request ->seo_title;
-        $post -> slug = $request ->seo_title;
-        $post -> address = '123';
-        $post -> latitude = '321'   ;
-        $post -> longitude = '123';
-        $post -> body = $request ->body;
-        $path =explode("/",$request->file('image')->store('\public\posts'));
-        $post -> image = 'posts/'.$path[1];
-        $post ->save();
+
+        Post::create($request->all());
+//        $post = new Post();
+//        $post -> author_id = 1;
+//        $post -> category_id = $request ->category_id;
+//        $post ->title = $request ->title;
+//        $post -> seo_title = $request ->seo_title;
+//        $post -> slug = $request ->seo_title;
+//        $post -> address = '123';
+//        $post -> latitude = '321'   ;
+//        $post -> longitude = '123';
+//        $post -> body = $request ->body;
+//        $path = explode("/",$request->file('image')->store('\public\posts'));
+//        $post -> image = 'posts/'.$path[1];
+//        $post ->save();
 
         return redirect('/');
     }
@@ -71,11 +72,22 @@ class HomeController extends Controller
         return view('layouts/editPost',['navmenus' => $navmenus,'post'=>$post]);
     }
 
-    public function updatePost(Request $request, Post $post){
 
+    public function updatePost(Request $request, $id){
+        $post = POST::find($id);
         $post -> update($request->all());
         $navmenus = NavMenus::all();
-        $posts = POST::all();
-        return view('layouts/pages/cars',['navmenus'=>$navmenus,'posts'=>$posts]);
+        $posts = Post::where('category_id', $id)->paginate(4);
+        return view('layouts/pages/category',['navmenus'=>$navmenus,'posts'=>$posts]);
+    }
+
+    public function destroy($id){
+        $post = POST::find($id);
+        $category_id = $post->category_id;
+        $post->delete();
+
+        $navmenus = NavMenus::all();
+        $posts = POST::all()->where('category_id','=',$category_id);
+        return view('layouts/pages/category',['navmenus'=>$navmenus,'posts'=>$posts]);
     }
 }
