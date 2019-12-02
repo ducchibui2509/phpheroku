@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\NavMenus;
 use App\Post;
+use DB;
 
 class HomeController extends Controller
 {
@@ -41,7 +42,7 @@ class HomeController extends Controller
     {
         Post::create($request->all());
         $navmenus = NavMenus::all();
-        $category_id = $request -> category_id;
+        $category_id = $request->category_id;
         $posts = Post::where('category_id', $category_id)->paginate(4);
         return view('layouts/pages/category', ['navmenus' => $navmenus, 'posts' => $posts]);
     }
@@ -67,7 +68,7 @@ class HomeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -78,6 +79,16 @@ class HomeController extends Controller
 
         $navmenus = NavMenus::all();
         $posts = Post::where('category_id', $category_id)->paginate(4);
+        return view('layouts/pages/category', ['navmenus' => $navmenus, 'posts' => $posts]);
+    }
+
+    public function search(Request $request)
+    {
+        $searchString = $request->searchString;
+        $navmenus = NavMenus::all();
+        $posts = DB::table('posts')->where('title', 'LIKE', '%' . $searchString . '%')
+            ->orwhere('body', 'LIKE', '%' . $searchString . '%')
+            ->paginate(10);
         return view('layouts/pages/category', ['navmenus' => $navmenus, 'posts' => $posts]);
     }
 }

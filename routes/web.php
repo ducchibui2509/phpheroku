@@ -26,6 +26,8 @@ Route::get('/posts/{id}/edit','HomeController@editPost');
 Route::put('/posts/{id}','HomeController@updatePost');
 Route::delete('/posts/{id}','HomeController@destroy');
 
+Route::get('/search','HomeController@search');
+
 //pradeep
 Route::get('/addPost','AddPostController@addPost');
 Route::post('/addNew','AddPostController@store');

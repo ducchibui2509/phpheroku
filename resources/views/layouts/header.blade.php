@@ -44,8 +44,9 @@ $navmenus = NavMenus::all();
             <!--                <img src="storage/images/search_icon.jpg" width="15px">-->
             <!--            </button>-->
             <div id="searchButton" class="d-sm-inline-block">
-                <form class="form-inline">
-                    <input class="form-control mr-2" type="text" placeholder="Search">
+                <form class="form-inline" method="get" action="/search">
+                    {{ csrf_field() }}
+                    <input class="form-control mr-2" type="text" name = "searchString" placeholder="Search">
                     <button class="btn btn-outline-light" type="submit">Go</button>
                 </form>
             </div>
