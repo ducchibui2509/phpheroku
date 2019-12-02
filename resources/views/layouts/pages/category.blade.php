@@ -33,8 +33,9 @@
                                     </form>
                                 </a>
                                 <a class="list-group-item">
-                                    <form class="form-inline" method="post" action="{{ url('/posts/'.$post->id.'/delete') }}">
+                                    <form class="form-inline" method="post" action="{{ url('/posts/'.$post->id) }}">
                                         {{ csrf_field() }}
+                                        {{ method_field('DELETE') }}
                                         <input class="btn btn-primary" type="submit" value="Delete"/>
                                     </form>
                                 </a>

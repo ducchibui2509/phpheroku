@@ -18,7 +18,7 @@
                             <h5 class="card-subtitle">{{$navmenu->subtitle}}</h5>
                             <p class="card-text">{{$navmenu->description}}</p>
                         </div>
-                        <a class="btn btn-info" href="/posts/{{$navmenu->link}}">
+                        <a class="btn btn-info" href="/posts/{{$navmenu->id}}">
                             Add Post
                         </a>
                     </section><!-- card -->

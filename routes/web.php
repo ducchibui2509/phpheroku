@@ -19,12 +19,12 @@ use App\Http\Controllers\HomeController;
 
 Route::get('/','HomeController@show');
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/pages/{id}','HomeController@toPage');
 Route::get('/posts/{id}', 'HomeController@addPost');
 Route::post('/posts','HomeController@storePost');
 Route::get('/posts/{id}/edit','HomeController@editPost');
 Route::put('/posts/{id}','HomeController@updatePost');
-Route::get('/pages/{id}','HomeController@toPage');
-Route::post('/posts/{id}/delete','HomeController@destroy');
+Route::delete('/posts/{id}','HomeController@destroy');
 
 //pradeep
 Route::get('/addPost','AddPostController@addPost');
