@@ -22,5 +22,6 @@
     @yield('body')
 </section>
 @include('layouts/footer');
+<script type="text/javascript" src="{{asset('js/app.js')}}"></script>
 </body>
 </html>

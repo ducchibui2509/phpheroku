@@ -16,7 +16,7 @@ $navmenus = NavMenus::all();
         </button>
         <div class="collapse navbar-collapse" id="myToggleNav">
             <div class="navbar-nav">
-                <a href="/" class="navbar-brand">Share Square</a>
+                <a href="{{url('/')}}" class="navbar-brand">Share Square</a>
                 @foreach($navmenus as $navmenu)
                     <a class="nav-item nav-link " href="/pages/{{$navmenu->navtype}}">{{$navmenu->name}}</a>
                 @endforeach

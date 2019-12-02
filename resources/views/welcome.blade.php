@@ -1,4 +1,4 @@
-{{--@extends('layouts/master')--}}
+@extends('layouts/master')
 @section('css')
     <link href="{{asset('css/welcome.css')}}" rel="stylesheet"/>
 @endsection
