@@ -25,19 +25,32 @@
                 <div class="form-group">
                     <label for="title">Title</label>
                     <input class="form-control" type="text" name="title" id="title"
-                           value="{{ old('title', $post->title ) }}">
+                           @if($errors->has('title'))
+                           value="{{$errors->first('title')}}"
+                           @else
+                           value="{{ old('title', $post->title ) }}"
+                        @endif>
                 </div>
 
                 <div class="form-group">
                     <label for="subtitle">Sub Title</label>
                     <input class="form-control" type="text" name="seo_title" id="subtitle"
-                           value="{{ old('title', $post->seo_title ) }}">
+                           @if($errors->has('seo_title'))
+                           value="{{$errors->first('seo_title')}}"
+                           @else
+                           value="{{ old('title', $post->seo_title ) }}"
+                        @endif>
                 </div>
 
                 <div class="form-group">
                     <label for="description">Description</label>
-                    <textarea class="form-control rounded-0" name="body" id="description"
-                              rows="5">{{ old('title', $post->body ) }}</textarea>
+                    <textarea class="form-control rounded-0 " name="body" id="description"
+                              rows="5">
+                        @if($errors->has('body'))
+                            {{$errors->first('body')}}
+                        @else
+                            {{ old('title', $post->body ) }}
+                        @endif</textarea>
                 </div>
 
 

@@ -38,12 +38,22 @@ class HomeController extends Controller
         return view('layouts.addPost', ['navmenus' => $navmenus]);
     }
 
+
     public function storePost(Request $request)
     {
+        $request->validate([
+            'category_id' => 'required',
+            'title' => 'required',
+            'seo_title' =>'required',
+            'body' => 'required'
+        ]);
+
         Post::create($request->all());
         $navmenus = NavMenus::all();
         $category_id = $request->category_id;
-        $posts = Post::where('category_id', $category_id)->paginate(4);
+        $posts = Post::where('category_id', $category_id)
+            ->orderBy('id', 'desc')
+            ->paginate(4);
         return view('layouts/pages/category', ['navmenus' => $navmenus, 'posts' => $posts]);
     }
 
@@ -56,11 +66,20 @@ class HomeController extends Controller
 
     public function updatePost(Request $request, $id)
     {
+        $request->validate([
+            'category_id' => 'required',
+            'title' => 'required',
+            'seo_title' =>'required',
+            'body' => 'required'
+        ]);
+
         $post = POST::find($id);
         $post->update($request->all());
         $category_id = $post->category_id;
         $navmenus = NavMenus::all();
-        $posts = Post::where('category_id', $category_id)->paginate(4);
+        $posts = Post::where('category_id', $category_id)
+            ->orderBy('id', 'desc')
+            ->paginate(4);
         return view('layouts/pages/category', ['navmenus' => $navmenus, 'posts' => $posts]);
     }
 
@@ -78,7 +97,9 @@ class HomeController extends Controller
         $post->delete();
 
         $navmenus = NavMenus::all();
-        $posts = Post::where('category_id', $category_id)->paginate(4);
+        $posts = Post::where('category_id', $category_id)
+            ->orderBy('id', 'desc')
+            ->paginate(4);
         return view('layouts/pages/category', ['navmenus' => $navmenus, 'posts' => $posts]);
     }
 
@@ -88,6 +109,7 @@ class HomeController extends Controller
         $navmenus = NavMenus::all();
         $posts = DB::table('posts')->where('title', 'LIKE', '%' . $searchString . '%')
             ->orwhere('body', 'LIKE', '%' . $searchString . '%')
+            ->orderBy('id', 'desc')
             ->paginate(10);
         return view('layouts/pages/category', ['navmenus' => $navmenus, 'posts' => $posts]);
     }

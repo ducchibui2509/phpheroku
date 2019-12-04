@@ -14,7 +14,7 @@
                         <div class="col border-bottom border-success">
                             <div class="card-body ">
                                 <h5 class="card-subtitle ">{{$post->seo_title}}</h5>
-                                <p class="card-text text-truncate text-md-left">{{$post->body}}</p>
+                                <p class="card-text text-truncate text-md-left">{{$post->excerpt}}</p>
                             </div>
                         </div>
                     </div>
