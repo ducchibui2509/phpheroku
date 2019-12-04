@@ -10,12 +10,56 @@
 <header>
 
 </header>
+<!-- Navbar -->
+<nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
+    <div class="container">
+
+        <!-- Brand -->
+        <a class="navbar-brand waves-effect" href="https://mdbootstrap.com/docs/jquery/" target="_blank">
+            <strong class="blue-text">Share Square</strong>
+        </a>
+
+        <!-- Collapse -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Links -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+            <!-- Left -->
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link waves-effect" href="#">Display Post
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link waves-effect" href="{{ URL::to('editPost', ['id' => $postData["post_id"]])}}" target="_blank">Edit Post</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link waves-effect" href="{{ URL::to('deletePost', ['id' => $postData["post_id"]])}}"
+                       target="_blank">Delete Post</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link waves-effect" href="{{ URL::to('addPost') }}" target="_blank">Create New</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link waves-effect" href="{{ URL::to('promotePost', ['id' => $postData["post_id"]])}}"
+                       target="_blank">Promote Post</a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+<!-- Navbar -->
 <main class="mt-5 pt-4">
     <div class="container dark-grey-text mt-5">
-        <p class="h4 mb-4 text-left">Post Heading</p>
+        <p class="h4 mb-4 text-left">{{ $postData["title"] }}</p>
         <!--Grid row-->
         <div class="row wow fadeIn">
-
             <!--Grid column-->
             <div class="col-md-6 mb-4">
 
@@ -24,27 +68,28 @@
                     <!--Indicators-->
                     <ol class="carousel-indicators">
                         <li data-target="#carousel-example-1z" data-slide-to="0" class="active"></li>
-                        <li data-target="#carousel-example-1z" data-slide-to="1"></li>
-                        <li data-target="#carousel-example-1z" data-slide-to="2"></li>
+                        @for($i=1;$i<$postData["images"]->count();$i++)
+                            {
+                        <li data-target="#carousel-example-1z" data-slide-to="{{ $i }}"></li>
+                            }
+                        @endfor
                     </ol>
                     <!--/.Indicators-->
                     <!--Slides-->
                     <div class="carousel-inner z-depth-1-half" role="listbox">
                         <!--First slide-->
                         <div class="carousel-item active">
-                            <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(130).jpg" alt="First slide">
+                            <img class="d-block w-100" src="{{ asset('photos/'.$postData["images"][0]) }}" alt="First slide">
                         </div>
                         <!--/First slide-->
                         <!--Second slide-->
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(129).jpg" alt="Second slide">
-                        </div>
-                        <!--/Second slide-->
-                        <!--Third slide-->
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(70).jpg" alt="Third slide">
-                        </div>
-                        <!--/Third slide-->
+                        @for($i=1;$i<$postData["images"]->count();$i++)
+                            {
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="{{ asset('photos/'.$postData["images"][$i]) }}">
+                            </div>
+                            }
+                        @endfor
                     </div>
                     <!--/.Slides-->
                     <!--Controls-->
@@ -71,9 +116,7 @@
 
                     <p class="lead font-weight-bold">Description</p>
 
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et dolor suscipit libero eos atque quia ipsa
-                        sint voluptatibus!
-                        Beatae sit assumenda asperiores iure at maxime atque repellendus maiores quia sapiente.</p>
+                    <p>{{ $postData["Description"] }}</p>
 
                     <form class="d-flex justify-content-left">
                         <button class="btn btn-primary btn-md my-0 p" type="submit">Contact Owner
@@ -111,25 +154,15 @@
         <div class="row wow fadeIn">
 
             <!--Grid column-->
-            <div class="col-lg-4 col-md-12 mb-4">
+            @foreach($postData as $key => $value)
+                @if($key != 'post_id' and $key != 'post_category' and $key != 'title' and $key!='images')
+                    <div class="col-lg-4 col-md-12 mb-4">
 
-                <p>Parameter-1</p>
+                        <p>{{$key}} : {{$value}}</p>
 
-            </div>
-            <!--Grid column-->
-
-            <!--Grid column-->
-            <div class="col-lg-4 col-md-6 mb-4">
-
-                <p>Parameter-2</p>
-            </div>
-            <!--Grid column-->
-
-            <!--Grid column-->
-            <div class="col-lg-4 col-md-6 mb-4">
-
-                <p>Parameter-3</p>
-            </div>
+                    </div>
+                    @endif
+            @endforeach
             <!--Grid column-->
 
         </div>

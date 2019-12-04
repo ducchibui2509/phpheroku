@@ -19,47 +19,47 @@
             return false;
         } else if(phone !="")
             if (!(phone.match(phoneformat))) {
-            alert("Phone should be XXX XXX XXXX format");
-            return false;
-        }
+                alert("Phone should be XXX XXX XXXX format");
+                return false;
+            }
     }
 </script>
 <header>
 
 </header>
 <main>
-    <form name="RealEstate" class="border border-light p-5" action="/addAttributes" method="post" enctype="multipart/form-data" onsubmit="return validateform()">
+    <form name="RealEstate" class="border border-light p-5" action="/editAttributes" method="post" enctype="multipart/form-data" onsubmit="return validateform()">
         {{ csrf_field() }}
         <div class="form-row justify-content-center align-items-center">
             <div class="col-5">
                 <p class="h4 mb-4 text-left">Ad Details</p>
                 <label for="textInput">Ad Type:</label>
                 <div class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" id="Ad_TypeChecked" name="Ad_Type" checked value="I am offering">
+                    <input type="radio" class="custom-control-input" id="Ad_TypeChecked" name="Ad_Type" checked value="I am offering" {{ $postData["Ad_Type"] == "I am offering" ? 'checked' : '' }}>
                     <label class="custom-control-label" for="Ad_TypeChecked">I am offering</label>
                 </div>
                 <div class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" id="Ad_TypeUnchecked" name="Ad_Type" value="I want">
+                    <input type="radio" class="custom-control-input" id="Ad_TypeUnchecked" name="Ad_Type" value="I want" {{ $postData["Ad_Type"] == "I want" ? 'checked' : '' }}>
                     <label class="custom-control-label" for="Ad_TypeUnchecked">I want</label>
                 </div>
                 <br>
                 <label for="textInput">Furnished:</label>
                 <div class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" id="FurnishedChecked" name="Furnished"  value="Yes" checked>
+                    <input type="radio" class="custom-control-input" id="FurnishedChecked" name="Furnished"  value="Yes" {{ $postData["Furnished"] == "Yes" ? 'checked' : '' }}>
                     <label class="custom-control-label" for="FurnishedChecked">Yes</label>
                 </div>
                 <div class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" id="FurnishedUnchecked" name="Furnished" value="No">
+                    <input type="radio" class="custom-control-input" id="FurnishedUnchecked" name="Furnished" value="No" {{ $postData["Furnished"] == "No" ? 'checked' : '' }}>
                     <label class="custom-control-label" for="FurnishedUnchecked">No</label>
                 </div>
                 <br>
                 <label for="textInput">Ad Title</label>
-                <input type="hidden" name="post_id" value="{{ old('title', $post->post_id ) }}">
-                <input type="hidden" name="post_category" value="{{ old('title', $post->post_category ) }}">
-                <input readonly type="text" id="textInput" class="form-control mb-4" name="title" placeholder="Should be populated" value="{{ old('title', $post->title ) }}">
+                <input type="hidden" name="post_id" value="{{ old('title', $postData["post_id"] ) }}">
+                <input type="hidden" name="post_category" value="{{ old('title', $postData["post_category"] ) }}">
+                <input readonly type="text" id="textInput" class="form-control mb-4" name="title" placeholder="Should be populated" value="{{ old('title', $postData["title"] ) }}">
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1">Description</label>
-                    <textarea class="form-control rounded-0" id="exampleFormControlTextarea1" rows="4" name="Description"></textarea>
+                    <textarea class="form-control rounded-0" id="exampleFormControlTextarea1" rows="4" name="Description">{{ old('Description', $postData["Description"] ) }}</textarea>
                 </div>
                 <p class="h4 mb-4 text-left">Media</p>
                 <label for="textInput">Select Images :</label>
@@ -67,20 +67,20 @@
                 <p class="h4 mb-4 text-left">Price</p>
                 <label for="textInput">Price:</label>
                 <div class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" id="PriceChecked" name="Price" checked>
-                    <label class="custom-control-label" for="PriceChecked">$</label><input type="text" id="textInput" class="form-control mb-4" placeholder="1200" name="Price">
+                    <input type="radio" class="custom-control-input" id="PriceChecked" name="Price" {{ $postData["Price"] != "Please Contact" ? 'checked' : '' }}>
+                    <label class="custom-control-label" for="PriceChecked">$</label><input type="text" id="textInput" class="form-control mb-4" placeholder="1200" name="Price"  value="{{ $postData["Price"] != "Please Contact" ? old('title', $postData["Price"]) : "" }}">
                 </div>
                 <div class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" id="PriceUnchecked" name="Price" value="Please Contact">
+                    <input type="radio" class="custom-control-input" id="PriceUnchecked" name="Price" value="Please Contact" {{ $postData["Price"] == "Please Contact" ? 'checked' : '' }}>
                     <label class="custom-control-label" for="PriceUnchecked">Please Contact</label>
                 </div>
                 <br>
                 <p class="h4 mb-4 text-left">Contact Information</p>
                 <label for="textInput">Phone Number:</label>
-                <input type="text" id="textInput" class="form-control mb-4" placeholder="Enter your Phone Number(optional)" name="Phone_Number">
+                <input type="text" id="textInput" class="form-control mb-4" placeholder="Enter your Phone Number(optional)" name="Phone_Number" value="{{ old('title', $postData["Phone_Number"] ) }}">
                 <label for="textInput">Email:</label>
-                <input type="text" id="textInput" class="form-control mb-4" placeholder="Enter your Email" name="Email">
-                <button class="btn btn-info btn-block my-4" type="submit">Post Your Ad</button>
+                <input type="text" id="textInput" class="form-control mb-4" placeholder="Enter your Email" name="Email" value="{{ old('title', $postData["Email"] ) }}">
+                <button class="btn btn-info btn-block my-4" type="submit">Update Your Ad</button>
             </div>
         </div>
     </form>
