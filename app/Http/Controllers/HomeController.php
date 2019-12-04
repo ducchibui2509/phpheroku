@@ -48,6 +48,13 @@ class HomeController extends Controller
             'body' => 'required'
         ]);
 
+        //update the path for the image
+        $path = $request->file('upfile')->store('public/posts/October2019');
+        $pos = strpos($path,'/');
+        $path = substr($path,$pos);
+        //add the image path into the request
+        $request->request->add(['image' => $path]);
+        //create the post
         Post::create($request->all());
         $navmenus = NavMenus::all();
         $category_id = $request->category_id;
