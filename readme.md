@@ -45,7 +45,7 @@
 | Update Post in details page |Chi Bui| week11 | InProgess|
 | Create Search Post helper function for post searching, filtering purpose include paging |Kien Tran| week12 | Done|
 | Create Post List layout for public, pending, draft, close, favorite |Kien Tran| week12 | In Progresss|
-| Do pagination for all the page and search on home page |Chi Bui| week12 | Done|
+| Do pagination for all the page and search on home page and add validation|Chi Bui| week13 | Done|
 
 ## II. How to setup project on local environment
 
