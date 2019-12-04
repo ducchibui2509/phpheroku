@@ -32,6 +32,13 @@ Route::get('/search','HomeController@search');
 Route::get('/addPost','AddPostController@addPost');
 Route::post('/addNew','AddPostController@store');
 Route::post('/addAttributes','AddPostController@addAttributes');
+Route::get('/editPost/{id}','AddPostController@editPost');
+Route::post('/editAttributes','AddPostController@editAttributes');
+Route::get('/deletePost/{id}','AddPostController@deletePost');
+Route::get('/displayPost/{id}','AddPostController@displayPost');
+Route::get('/help','AddPostController@help');
+Route::get('/promotePost/{id}','AddPostController@promotePost');
+Route::post('/checkout','AddPostController@checkout');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

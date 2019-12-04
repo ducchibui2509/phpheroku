@@ -35,41 +35,41 @@
                 <p class="h4 mb-4 text-left">Ad Details</p>
                 <label for="textInput">Job Offered By:</label>
                 <div class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" id="Ad_TypeChecked" name="Ad_Type" checked value="Individual">
+                    <input type="radio" class="custom-control-input" id="Ad_TypeChecked" name="Ad_Type" value="Individual" {{ $postData["Ad_Type"] == "Individual" ? 'checked' : '' }}>
                     <label class="custom-control-label" for="Ad_TypeChecked">Individual</label>
                 </div>
                 <div class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" id="Ad_TypeUnchecked" name="Ad_Type" value="Professional Employer">
+                    <input type="radio" class="custom-control-input" id="Ad_TypeUnchecked" name="Ad_Type" value="Professional Employer" {{ $postData["Ad_Type"] == "Professional Employer" ? 'checked' : '' }}>
                     <label class="custom-control-label" for="Ad_TypeUnchecked">Professional Employer</label>
                 </div>
                 <br>
                 <label for="textInput">Company</label>
-                <input type="text" id="textInput" class="form-control mb-4" placeholder="optional" name="Company">
+                <input type="text" id="textInput" class="form-control mb-4" placeholder="optional" name="Company" value="{{ old('title', $postData["Company"] ) }}">
                 <label for="textInput">Job Type</label>
                 <select class="browser-default custom-select mb-4" id="select" name="Job_Type">
                     <option value="" disabled="" selected="">-Select-</option>
-                    <option value="Full Time">Full Time</option>
-                    <option value="Part Time">Part Time</option>
-                    <option value="Contract">Contract</option>
-                    <option value="Temporary">Temporary</option>
-                    <option value="Please Contact">Please Contact</option>
+                    <option value="Full Time" {{ $postData["Job_Type"] == "Full Time" ? 'selected' : '' }}>Full Time</option>
+                    <option value="Part Time" {{ $postData["Job_Type"] == "Part Time" ? 'selected' : '' }}>Part Time</option>
+                    <option value="Contract" {{ $postData["Job_Type"] == "Contract" ? 'selected' : '' }}>Contract</option>
+                    <option value="Temporary" {{ $postData["Job_Type"] == "Temporary" ? 'selected' : '' }}>Temporary</option>
+                    <option value="Please Contact" {{ $postData["Job_Type"] == "Please Contact" ? 'selected' : '' }}>Please Contact</option>
                 </select>
                 <label for="textInput">Ad Title</label>
-                <input type="hidden" name="post_id" value="{{ old('title', $post->post_id ) }}">
-                <input type="hidden" name="post_category" value="{{ old('title', $post->post_category ) }}">
-                <input readonly type="text" id="textInput" class="form-control mb-4" placeholder="Should be populated" name="title" value="{{ old('title', $post->title ) }}">
+                <input type="hidden" name="post_id" value="{{ old('title', $postData["post_id"] ) }}">
+                <input type="hidden" name="post_category" value="{{ old('title', $postData["post_category"] ) }}">
+                <input readonly type="text" id="textInput" class="form-control mb-4" placeholder="Should be populated" name="title" value="{{ old('title', $postData["title"] ) }}">
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1">Description</label>
-                    <textarea class="form-control rounded-0" id="exampleFormControlTextarea1" rows="4" name="Description"></textarea>
+                    <textarea class="form-control rounded-0" id="exampleFormControlTextarea1" rows="4" name="Description">{{ old('title', $postData["Description"] ) }}</textarea>
                 </div>
                 <label for="textInput">Location:</label>
-                <input type="text" id="textInput" class="form-control mb-4" placeholder="" name="Location" placeholder="Toronto">
+                <input type="text" id="textInput" class="form-control mb-4" placeholder="" name="Location" placeholder="Toronto" value="{{ old('title', $postData["Location"] ) }}">
                 <p class="h4 mb-4 text-left">Contact Information</p>
                 <label for="textInput">Phone Number:</label>
-                <input type="text" id="textInput" class="form-control mb-4" placeholder="Enter your Phone Number(optional)" name="Phone_Number">
+                <input type="text" id="textInput" class="form-control mb-4" placeholder="Enter your Phone Number(optional)" name="Phone_Number" value="{{ old('title', $postData["Phone_Number"] ) }}">
                 <label for="textInput">Email:</label>
-                <input type="text" id="textInput" class="form-control mb-4" placeholder="Enter your Email" name="Email">
-                <button class="btn btn-info btn-block my-4" type="submit">Post Your Ad</button>
+                <input type="text" id="textInput" class="form-control mb-4" placeholder="Enter your Email" name="Email" value="{{ old('title', $postData["Email"] ) }}">
+                <button class="btn btn-info btn-block my-4" type="submit">Update Your Ad</button>
             </div>
         </div>
     </form>
