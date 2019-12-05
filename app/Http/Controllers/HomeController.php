@@ -81,6 +81,13 @@ class HomeController extends Controller
         ]);
 
         $post = POST::find($id);
+
+        $path = $request->file('editfile')->store('public/posts/October2019');
+        $pos = strpos($path,'/');
+        $path = substr($path,$pos);
+        //add the image path into the request
+        $request->request->add(['image' => $path]);
+
         $post->update($request->all());
         $category_id = $post->category_id;
         $navmenus = NavMenus::all();

@@ -53,15 +53,14 @@
                         @endif</textarea>
                 </div>
 
-
                 <div class="form-group">
                     <div class="custom-file">
-                        <input type="file" class="custom-file-input" name="image" id="petphoto"
+                        <input type="hidden" name="MAX_FILE_SIZE" value="5000000">
+                        <input type="file" class="custom-file-input" name="editfile" id="editfile"
                                value="{{ old('title', $post->image ) }}">
-                        <label class="custom-file-label" for="petphoto">Upload photo</label>
+                        <label class="custom-file-label" for="editfile">Upload photo</label>
                     </div>
                 </div>
-
 
             </fieldset>
             <button class="btn btn-primary" type="submit">Submit</button>
